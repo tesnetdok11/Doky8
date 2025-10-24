@@ -1,0 +1,21 @@
+{
+  "version": "v8.9.0",
+  "github_repo": "https://raw.githubusercontent.com/YOURUSER/YOURREPO/main/",
+  "auto_update": true,
+  "telegram_enabled": true,
+  "prob_threshold": 0.85,
+  "pairs": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "BNBUSDT",
+    "ADAUSDT",
+    "XRPUSDT"
+  ],
+  "timeframes": [
+    "1m",
+    "15m",
+    "1h"
+  ],
+  "mode": "crypto"
+}

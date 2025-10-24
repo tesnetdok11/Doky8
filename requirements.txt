@@ -1,0 +1,8 @@
+python-dotenv
+requests
+numpy
+python-binance
+scikit-learn
+joblib
+ta
+pyyaml
