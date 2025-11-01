@@ -1,0 +1,17 @@
+[Unit]
+Description=DokyOS Autonomous AI Trading System
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/DokyOS
+Environment=PATH=/home/ubuntu/DokyOS/dokyos_env/bin
+ExecStart=/home/ubuntu/DokyOS/dokyos_env/bin/python /home/ubuntu/DokyOS/main.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

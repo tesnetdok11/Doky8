@@ -1,0 +1,21 @@
+# Core dependencies
+asyncio
+# Tambahkan dependencies untuk Aggr data analysis
+aiohttp
+python-binance==1.0.19
+python-telegram-bot==20.7
+cryptography==41.0.7
+pandas
+numpy
+scikit-learn
+psutil==5.9.6
+pygithub==1.59.0
+requests==2.31.0
+websockets==12.0
+pytz==2023.3
+ta-lib
+joblib==1.3.2
+
+# TAMBAHAN untuk Aggr data
+pyarrow  # Untuk handling data yang lebih efisien
+fastparquet  # Alternatif untuk parquet files

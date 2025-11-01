@@ -1,0 +1,48 @@
+"""
+SESSION CONFIG - Deteksi sesi pasar Asia/London/NY
+"""
+
+from datetime import datetime
+from config.settings import settings
+
+class SessionConfig:
+    @staticmethod
+    def get_current_session():
+        """Get current market session"""
+        current_hour = datetime.utcnow().hour
+        
+        if settings.ASIA_SESSION["start"] <= current_hour < settings.ASIA_SESSION["end"]:
+            return "ASIA"
+        elif settings.LONDON_SESSION["start"] <= current_hour < settings.LONDON_SESSION["end"]:
+            return "LONDON" 
+        elif settings.NEWYORK_SESSION["start"] <= current_hour < settings.NEWYORK_SESSION["end"]:
+            return "NEWYORK"
+        else:
+            return "GLOBAL"
+            
+    @staticmethod
+    def get_session_parameters(session):
+        """Get parameters for specific session"""
+        session_params = {
+            "ASIA": {
+                "volatility": "low",
+                "recommended_pairs": ["BTCUSDT", "ETHUSDT", "BNBUSDT"],
+                "analysis_intensity": "medium"
+            },
+            "LONDON": {
+                "volatility": "high", 
+                "recommended_pairs": ["BTCUSDT", "ETHUSDT", "XRPUSDT", "ADAUSDT"],
+                "analysis_intensity": "high"
+            },
+            "NEWYORK": {
+                "volatility": "high",
+                "recommended_pairs": ["BTCUSDT", "ETHUSDT", "SOLUSDT", "DOTUSDT"],
+                "analysis_intensity": "high"
+            },
+            "GLOBAL": {
+                "volatility": "medium",
+                "recommended_pairs": ["BTCUSDT", "ETHUSDT"],
+                "analysis_intensity": "low"
+            }
+        }
+        return session_params.get(session, session_params["GLOBAL"])
